@@ -63,6 +63,10 @@ class ProfileController extends Controller
     }
     /**
      * Обновление информации об авторе
+     *
+     * @param Illuminate\Http\Request
+     *
+     * @return Illuminate\Support\Facades\Redirect
      */
     public function author(Request $request)
     {
