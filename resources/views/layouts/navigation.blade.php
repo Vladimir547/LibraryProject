@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href="{{ url('/') }}">
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href="{{ url('/book/show') }}">
                         Книги
                     </a>
                 </div>
@@ -22,18 +22,18 @@
                     </a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href="{{ url('/profile') }}">
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href="{{ url('/book/my/'.auth()->user()->author->id) }}">
                         Мои Книги
                     </a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href="{{ url('/profile') }}">
-                        Добавить Книгу
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href='{{ asset("/book/add/".auth()->user()->author->id) }}'>
+                        Добавить свою Книгу
                     </a>
                 </div>
                 @if(Auth::user()->role == 'admin')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href="{{ url('/author/add') }}">
+                        <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium" href="{{ asset('/author/add/new') }}">
                             Добавить автора
                         </a>
                     </div>
@@ -88,7 +88,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href="{{ url("/") }}">
+            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href="{{ url("/book/show") }}">
                 Книги
             </a>
         </div>
@@ -98,18 +98,18 @@
             </a>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href="{{ url("/profile") }}">
+            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href="{{ url('/book/my/'.auth()->user()->author->id) }}">
                 Мои Книги
             </a>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href="{{ url("/profile") }}">
-                Добавить книгу
+            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href='{{ asset("/book/add/{auth()->user())}") }}'>
+                Добавить свою книгу
             </a>
         </div>
         @if(Auth::user()->role == 'admin')
             <div class="pt-2 pb-3 space-y-1">
-                <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href="{{ url("/author/add") }}">
+                <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium" href="{{ url("/author/add/new") }}">
                     Добавить автора
                 </a>
             </div>

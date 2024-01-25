@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Redirect;
 class AuthorController extends Controller
 {
     public function add() {
-
         return view('layouts.add');
     }
     public function insert(Request $request) {
