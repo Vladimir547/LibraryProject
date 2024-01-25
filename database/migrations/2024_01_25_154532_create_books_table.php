@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Title')->nullable();
             $table->string('genre')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('author_id')->nullable();
             $table->timestamps();
 
