@@ -82,9 +82,41 @@ password: 12345678
 
 ##API
 
+Получение всех книг:
+GET: /api/books
 
+Получение одной книги по id:
 
+GET: /api/one
 
+body:
+
+{
+    'id': 1
+}
+
+GET: /api/one
+
+Изменение  книги по id:
+
+POST: /api/update
+
+body:
+
+{
+    'id': 1
+    'title': 'test',
+    'genre': 'genre',
+    'description': 'description'
+}
+
+Удаление книги по id:
+
+POST: /api/delete
+
+{
+    'id': 1
+}
 
 
 
